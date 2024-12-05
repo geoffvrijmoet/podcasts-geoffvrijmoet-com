@@ -2,12 +2,13 @@
 Use this guide to build a web app that advertises the podcast editing services of Geoff Vrijmoet.
 
 # Feature Requirements
-- 
-- 
-- 
+- Homepage should be a long scrolling page with all sections a user should need to see to decide to contact Geoff.
+- Homepage should have a hero section showcasing Geoff's podcast editing services.
+- Homepage should have a services section detailing different editing packages.
+- Homepage should have a portfolio section with sample work/previous podcasts. This should display the different podcasts that Geoff currently edits, with up-to-date information on how many hours of podcast editing Geoff has done in total, as well as for each podcast. On the backend code for this section, Geoff would like to be able to add new podcasts to the portfolio, as well as update the information on the existing podcasts such as when Geoff began editing the podcast so we can accurately calculate the total hours of podcast editing Geoff has done.
 - The web app should have lightning-fast performance.
 - The entire app should be extremely mobile-friendly.
-- We will use Next.js, Shadcn, Lucid, Clerk, MongoDB, and Tailwind CSS to build the app.
+- We will use Next.js, Shadcn, Lucid, MongoDB, and Tailwind CSS to build the app.
 - The app should be deployed to Vercel.
 - The app should be SEO-friendly.
 - The app should be accessible.
