@@ -9,8 +9,8 @@ export function HeroSection() {
           <span className="block text-blue-400">sound their absolute best.</span>
         </h1>
         <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          Transform your raw recordings into professionally polished podcasts. 
-          Expert editing, crystal-clear audio quality, and quick turnaround times.
+          Professional podcast editing made simple. You record, I edit, 
+          your listeners enjoy.
         </p>
         <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
           Get Started
