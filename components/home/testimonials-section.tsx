@@ -48,7 +48,7 @@ export function TestimonialsSection() {
                     />
                   </div>
                   <p className="text-lg text-gray-700 italic font-light">
-                    "{testimonial.quote}"
+                  {testimonial.quote}
                   </p>
                 </div>
                 <footer className="flex items-center gap-4">
