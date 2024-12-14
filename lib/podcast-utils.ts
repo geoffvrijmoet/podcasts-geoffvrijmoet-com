@@ -2,9 +2,7 @@ import Parser from 'rss-parser'
 
 interface PodcastEpisode {
   pubDate: string
-  itunes: {
-    duration: string
-  }
+  'itunes:duration': string
 }
 
 interface PodcastFeed {
@@ -39,7 +37,7 @@ export async function getPodcastStats(feedUrl: string, startDate: string) {
     )
 
     const totalSeconds = editedEpisodes.reduce((acc, episode) => {
-      return acc + parseDuration(episode.itunes.duration)
+      return acc + parseDuration(episode['itunes:duration'])
     }, 0)
 
     return {
