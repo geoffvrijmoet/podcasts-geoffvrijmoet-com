@@ -1,7 +1,10 @@
-import { Inter } from "next/font/google"
+import { Quicksand } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const quicksand = Quicksand({ 
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"]
+})
 
 export const metadata = {
   title: "Geoff Vrijmoet | Professional Podcast Editor",
@@ -15,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={quicksand.className}>{children}</body>
     </html>
   )
 }
