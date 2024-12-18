@@ -14,7 +14,7 @@ export function HeroDecorations() {
   // Create rings with pre-defined radiuses
   const rings = Array.from({ length: 5 }, (_, i) => ({
     id: i,
-    baseRadius: 80 + (i * 180),  // Spread out the base radiuses
+    baseRadius: 150 + (i * 180),  // Start at 150px (outside mic) and increment by 180
     delay: i * 0.1
   }));
 
