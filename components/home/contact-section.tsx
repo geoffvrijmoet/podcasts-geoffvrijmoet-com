@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import ContactForm from '@/components/forms/ContactForm'
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -11,7 +12,8 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    const formData = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const formData = new FormData(form)
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
@@ -20,6 +22,8 @@ export function ContactSection() {
     }
 
     try {
+      console.log('Submitting form data:', data)
+      
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -28,12 +32,19 @@ export function ContactSection() {
         body: JSON.stringify(data),
       })
 
-      if (response.ok) {
-        setSubmitted(true)
-        e.currentTarget.reset()
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.details || 'Failed to send message')
+      }
+
+      setSubmitted(true)
+      if (form) {
+        form.reset()
       }
     } catch (error) {
-      console.error('Error:', error)
+      console.error('Form submission error:', error)
+      alert(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -45,7 +56,7 @@ export function ContactSection() {
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
           <p className="text-xl text-gray-600">
-            Ready to make your podcast sound amazing? Let's talk about your project.
+            Ready to make your podcast sound amazing? Let&apos;s talk about your project.
           </p>
         </div>
 
