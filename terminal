@@ -1,6 +1,5 @@
 npm install googleapis 
 mkdir -p components/providers
-mv app/components/providers/SessionProvider.tsx components/providers/ 
-mv app/components/ContactForm.tsx components/forms/ContactForm.tsx 
+rm -rf components/providers
 rm -rf app/api/auth
-rm -rf app/components/providers
+rm components/forms/ContactForm.tsx
