@@ -3,3 +3,4 @@ mkdir -p components/providers
 rm -rf components/providers
 rm -rf app/api/auth
 rm components/forms/ContactForm.tsx
+npm install framer-motion
