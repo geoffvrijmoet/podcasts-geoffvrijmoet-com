@@ -14,7 +14,14 @@ oauth2Client.setCredentials({
 
 const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
 
-function encodeEmail({ to, from, subject, message }: any) {
+interface EmailParams {
+  to: string;
+  from: string;
+  subject: string;
+  message: string;
+}
+
+function encodeEmail({ to, from, subject, message }: EmailParams) {
   const str = [
     'Content-Type: text/plain; charset="UTF-8"\n',
     'MIME-Version: 1.0\n',
@@ -53,8 +60,8 @@ ${message}
     console.log('Attempting to send email with content:', emailContent);
 
     const encodedEmail = encodeEmail({
-      to: process.env.EMAIL_TO,
-      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO!,
+      from: process.env.EMAIL_FROM!,
       subject: `New Contact Form Submission from ${name}`,
       message: emailContent
     });

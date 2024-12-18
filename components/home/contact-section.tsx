@@ -2,7 +2,6 @@
 import { useState } from "react"
 import { Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import ContactForm from '@/components/forms/ContactForm'
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -64,7 +63,7 @@ export function ContactSection() {
           <div className="max-w-md mx-auto text-center p-8 bg-white rounded-lg shadow-sm">
             <h3 className="text-2xl font-bold text-green-500 mb-2">Message Sent!</h3>
             <p className="text-gray-600">
-              Thanks for reaching out. I'll get back to you as soon as possible.
+              Thanks for reaching out. I&apos;ll get back to you as soon as possible.
             </p>
           </div>
         ) : (
