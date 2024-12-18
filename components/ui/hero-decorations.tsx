@@ -1,15 +1,11 @@
 'use client';
 
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 export function HeroDecorations() {
   const [isScrolling, setIsScrolling] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const { scrollY } = useScroll();
-  
-  // Create transform outside the callback
-  const progress = useTransform(scrollY, [0, 1000], [0, 1]);
   
   // Create rings with pre-defined radiuses
   const rings = Array.from({ length: 5 }, (_, i) => ({
@@ -20,9 +16,8 @@ export function HeroDecorations() {
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
-    let lastScrollY = 0;
 
-    const unsubscribe = scrollY.on("change", (latest) => {
+    const unsubscribe = scrollY.on("change", () => {
       setIsScrolling(true);
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
@@ -47,10 +42,11 @@ export function HeroDecorations() {
                   key={ring.id}
                   cx="900"
                   cy="50"
+                  r={ring.baseRadius}
                   stroke="#60A5FA"
                   strokeWidth={3 - ring.id * 0.4}
                   opacity={0.4 - ring.id * 0.05}
-                  style={{ r: ring.baseRadius }}
+                  style={{ pathLength: 1 }}
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 0.4 - ring.id * 0.05 }}
                   exit={{ opacity: 0 }}
