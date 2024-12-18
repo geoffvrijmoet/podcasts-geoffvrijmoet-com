@@ -32,7 +32,7 @@ export function HeroDecorations() {
   }, [scrollY]);
 
   return (
-    <div className="absolute left-1/2 -translate-x-1/2 bottom-20 opacity-80">
+    <div className="absolute left-1/2 -translate-x-1/2 bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 opacity-80">
       <svg width="1800" height="160" viewBox="0 0 1800 160" fill="none">
         <AnimatePresence>
           {isScrolling && (
