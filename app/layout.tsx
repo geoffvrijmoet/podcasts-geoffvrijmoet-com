@@ -10,6 +10,14 @@ const quicksand = Quicksand({
 export const metadata = {
   title: "Geoff Vrijmoet | Professional Podcast Editor",
   description: "Professional podcast editing services by Geoff Vrijmoet. High-quality audio editing, mixing, and production for podcasters.",
+  icons: {
+    icon: [
+      {
+        url: '/favicon.svg',
+        type: 'image/svg+xml',
+      }
+    ]
+  }
 }
 
 export default function RootLayout({
